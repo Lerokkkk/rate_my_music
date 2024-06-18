@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="content">
+        {% if not q %}
+        <p>Вы еще ничего не оценивали</p>
+        {% else %}
+        {% for compos in q %}
+        <div class="rate-item">
+            <img src="{{ compos.composition.photo.url }}" alt="{{ compos.composition.title }} Cover">
+            <div class="details">
+                <p><a href="{{ compos.composition.get_absolute_url }}">{{ compos.composition.title }}</p>
+                {% for artist in compos.composition.artist.all %}
+                <p><a href="{{ artist.get_absolute_url }}">{{ artist.name }}</a></p>
+                {% endfor %}
+                <p>Ваша оценка: {{ compos.rate }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
+
+{% block bonus_css %}
+<link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+{% endblock %}

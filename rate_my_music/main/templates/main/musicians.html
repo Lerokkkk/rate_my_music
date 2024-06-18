@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+    <section class="content">
+        {% for i in n %}
+        <div class="musician">
+            {% if i.photo %}
+            <img src="{{ i.photo.url}}" alt="Фото музыканта">
+            {% endif %}
+            <h2 class="musician-name"><a href="{{ i.get_absolute_url }}">{{ i.name }}</a></h2>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+
+{% endblock%}
+
+{% block bonus_css %}
+<link rel="stylesheet" href="{% static 'main/css/musicians.css' %}">
+{% endblock %}
+
+{% block button %}
+<div class="add-musician-button">
+            <a href="{% url 'add_artist' %}" class="button">Добавить музыканта</a>
+</div>
+{% endblock %}

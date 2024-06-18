@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="album-info">
+    <div class="album-details">
+        {% if composition.photo %}
+        <img src="{{ composition.photo.url }}" alt="{{ composition.title }} Cover">
+        {% else %}
+        <img src="{% static 'main/images/ex.jpg' %}" alt="{{ composition.title }} Cover">
+        {% endif %}
+        <h2>{{ composition.title }}</h2>
+        {% for artist in composition.artist.all %}
+            <p>Исполнитель: <a href="{{ artist.get_absolute_url }}">{{ artist.name }}</a></p>
+        {% endfor %}
+        <p>Дата релиза: {{ composition.release_date }}</p>
+        <form method="post" enctype="multipart/form-data">
+            {% if user.is_authenticated %}
+    {% csrf_token %}
+    {{ form.as_p }}
+            <p>Средняя оценка: {{ Rate }}</p>
+
+    <button type="submit">Сохранить</button>
+    {% if form.has_changed %}
+    <button type="submit" name="delete_rating">Удалить</button>
+            {% endif %}
+            {% endif %}
+</form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block bonus_css %}
+<link rel="stylesheet" href="{% static 'main/css/album.css' %}">
+{% endblock %}

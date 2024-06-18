@@ -1,0 +1,62 @@
+<!-- base.html -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    {% block bonus_css %}
+    {% endblock %}
+    {% block bonus_js %}
+    {% endblock %}
+  <script src="{% static 'main/js/script.js' %}"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+    <a href="{% url 'home' %}">
+        <img src="{% static 'main/images/logo.png' %}" alt="Rate My Music Logo">
+    </a>
+</div>
+    <div class="navigation">
+        {% for item in main_menu %}
+
+        <a href="{% url item.url_name %}" class="button">{{ item.title }}</a>
+
+        {% endfor %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'users:profile' %}" class="button">{{ user.username }}</a>
+        <a href="{% url 'users:logout' %}" class="button">Выход</a>
+        {% else %}
+        <a href="{% url 'users:login' %}" class="button">Вход</a>
+        <a href="{% url 'users:registration' %}" class="button">Регистрация</a>
+        {% endif %}
+    </div>
+</header>
+
+<div class="separator">
+    <div class="search-wrapper">
+        <div class="search">
+            <form action="{% url 'haystack_search' %}" method="get">
+                {{ search_form.as_table }}
+                <!-- <input type="text" placeholder="Поиск..." class="search-input" name="query"> -->
+                <button class="search-button" type="submit">Найти</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% block content %}
+{% endblock %}
+
+<footer>
+    <div class="copyright">
+        &copy; 2024 Rate My Music
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}CV
+{% block button %}
+<div class="add-album-button">
+    <a href="{% url 'add_composition' %}" class="button">Добавить альбом</a>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="albums-section">
+        {% for composition in Compos %}
+        {% if composition.r %}
+        <div class="album">
+            {% if composition.photo %}
+            <img src="{{ composition.photo.url }}" alt="{{ composition.title }} Cover">
+            {% else %}
+            <img src="{% static 'main/images/ex.jpg' %}" alt="{{ composition.title }} Cover">
+            {% endif %}
+            <div class="album-details">
+                <h3><a href="{{ composition.get_absolute_url }}">{{ composition.title }}</a></h3>
+                {% for artist in composition.artist.all %}
+            <p>Исполнитель: <a href="{{ artist.get_absolute_url }}">{{ artist.name }}</a></p>
+        {% endfor %}
+                <p>Дата выпуска: {{ composition.release_date }}</p>
+                <p>Средняя оценка: {{ composition.r|floatformat:2 }}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+{% block bonus_css %}
+<link rel="stylesheet" href="{% static 'main/css/top_albums.css' %}">
+{% endblock %}

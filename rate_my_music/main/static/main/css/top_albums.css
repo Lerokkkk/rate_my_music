@@ -1,0 +1,48 @@
+.albums-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.album {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.album img {
+    width: 100%;
+    height: auto;
+}
+
+.album-details {
+    padding: 10px;
+}
+
+.album-details h3 {
+    margin: 0;
+    font-size: 18px;
+
+}
+
+.album-details p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+
+.album-details h3 a,
+.album-details p a,
+.artist-name {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.album-details h3 a:hover,
+.album-details p a:hover,
+.artist-name:hover {
+    text-decoration: underline;
+}

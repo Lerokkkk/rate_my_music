@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<main>
+    <section class="content">
+        <div class="top-content">
+            <div class="top-content-wrapper">
+
+                <div id="topAlbum" style="display: none;">
+                    <h2 class="top-caption">Лучший альбом</h2>
+                    <img src="{{ q.photo.url }}" alt="{{ q.title }} Cover">
+                    <h2 class="caption"><a href="{{ q.get_absolute_url }}">{{ q.title }}</a></h2>
+                </div>
+                <div id="topArtist">
+                    <h2 class="top-caption">Новый релиз</h2>
+                    <img src="{{ last_release.photo.url }}" alt="Фото артиста">
+                    <h2 class="caption"><a href="{{ last_release.get_absolute_url }}">{{ last_release.title }}</a></h2>
+                </div>
+                <div class="arrows">
+                    <button id="prevButton">&lt;</button>
+                    <button id="nextButton">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

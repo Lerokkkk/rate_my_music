@@ -1,0 +1,3 @@
+{{ object.name }}
+{{ object.photo.url }}
+{{ object.url }}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block bonus_css %}
+<link rel="stylesheet" href="{% static 'main/css/search_results.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="search-results">
+    {% if object_list %}
+        <h2>Результаты поиска: {{ object_list|length }}</h2>
+
+        <ul>
+            {% for result in object_list %}
+            <li>
+                <img src="{{ result.object.photo.url }}" alt="{{ result.object.name }}" />
+                {% if result.model_name == 'artist' %}
+                    <h3><a href="{{ result.url }}">{{ result.object.name }}</a></h3>
+                {% elif result.model_name == 'composition' %}
+                    <h3><a href="{{ result.url }}">{{ result.object.title }}</a></h3>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ничего не найдено.</p>
+    {% endif %}
+</div>
+{% endblock %}

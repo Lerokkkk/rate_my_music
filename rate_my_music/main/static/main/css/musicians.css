@@ -1,0 +1,37 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.musician {
+    margin: 20px;
+    text-align: center;
+}
+
+.musician img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+.musician-name {
+    margin-top: 10px;
+    font-size: 18px;
+
+}
+.musician-name a {
+    color: black;
+    text-decoration: none;
+}
+
+.musician-name a:hover {
+    text-decoration: underline;
+}
+
+.add-musician-button {
+    margin-left: auto;
+}

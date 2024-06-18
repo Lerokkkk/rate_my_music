@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="artist-page">
+    <div class="artist-info">
+        <div class="artist-details">
+            {% if artist.photo %}
+            <img src="{{ artist.photo.url }}" alt="{{ artist.name }} Photo">
+            {% endif %}
+            <h2>{{ artist.name }}</h2>
+        </div>
+    </div>
+    <div class="albums-section">
+        {% for album in published_compositions %}
+        <div class="album">
+            {% if album.photo %}
+            <img src="{{ album.photo.url }}" alt="{{ album.title }} Cover">
+            {% else %}
+            <img src="{% static 'main/images/artist_photo.jpg' %}" alt="{{ album.title }} Cover">
+            {% endif %}
+            <div class="album-details">
+                <h3><a href="{{ album.get_absolute_url }}">{{ album.title }}</a></h3>
+                <p>Дата выпуска: {{ album.release_date }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
+
+{% block bonus_css %}
+<link rel="stylesheet" href="{% static 'main/css/artist.css' %}">
+{% endblock %}

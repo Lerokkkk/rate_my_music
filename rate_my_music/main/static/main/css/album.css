@@ -1,0 +1,32 @@
+.album-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.album-details img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.album-details h2 {
+    margin-top: 10px;
+}
+
+.album-details p {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+.album-info a {
+    color: black;
+    text-decoration: none;
+}
+
+.album-info a:hover {
+    text-decoration: underline;
+}
+
