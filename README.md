@@ -11,7 +11,7 @@ Rate My Music is a Django web application that allows you to rate musical compos
 - django-haystack: modular search for Django
 - Whoosh: full-text indexing and searching
 
-#Functional
+Functional
 ---
 - Evaluation of musical compositions
 - Adding songs and musicians
@@ -34,5 +34,5 @@ Rate My Music is a Django web application that allows you to rate musical compos
 `python manage.py migrate`
 ## 6.Create Superuser:
 `python manage.py createsuperuser`
-##7. Run server:
+## 7. Run server:
 `python manage.py runserver`
