@@ -2,7 +2,7 @@
 ---
 Rate My Music is a Django web application that allows you to rate musical compositions. Administrators and registered users can add artists and tracks. Added object users are moderated by the administrator before publication.
 
-#Technologies Used:
+# Technologies Used:
 - Django
 - HTML
 - CSS
