@@ -24,7 +24,7 @@ Functional
 
 `https://github.com/Lerokkkk/rate_my_music.git`
 
-`CD rate my music`
+`cd rate_my_music`
 ## 2. Create Virtual Environment:
 `python -m venv venv`
 ## 3. Activate Virtual Environment:
