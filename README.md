@@ -22,7 +22,7 @@ Functional
 # Installation:
 ## 1. Cloning a repository
 
-`git clone https://github.com/yourusername/rate-my-music.git`
+`https://github.com/Lerokkkk/rate_my_music.git`
 `CD rate my music`
 ## 2. Create Virtual Environment:
 `python -m venv venv`
